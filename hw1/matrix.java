@@ -17,7 +17,7 @@ public class matrix {
 		public static int[][] createMatrix(int x, int y) {
 			  Random random = new Random();
 			  int[][] array = new int[x][y];
-			  for (int i = 0; i < x; i++) {
+			  for (int i = 0; i < x; i++) { 
 			   for (int j = 0; j < y; j++) {
 			    array[i][j] = random.nextInt(2);
 			   }
