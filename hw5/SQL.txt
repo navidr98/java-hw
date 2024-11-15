@@ -1,0 +1,48 @@
+CREATE TABLE department (
+    id serial PRIMARY KEY,
+    dname VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE employee (
+    id serial PRIMARY KEY,
+    ename VARCHAR(255) NOT NULL,
+    salary int NOT NULL,
+    birth_date DATE NOT NULL,
+    department_id INT,
+    FOREIGN KEY (department_id) REFERENCES department(id)
+);
+
+
+INSERT INTO department (dname) VALUES ('HR');
+INSERT INTO department (dname) VALUES ('IT');
+INSERT INTO department (dname) VALUES ('NW');
+
+INSERT INTO employee (ename, salary, birth_date, department_id) VALUES ('Ali', 120, '1990-05-15', 1);
+INSERT INTO employee (ename, salary, birth_date, department_id) VALUES ('Reza', 75, '1985-08-20', 2);
+INSERT INTO employee (ename, salary, birth_date, department_id) VALUES ('Ahmad', 101, '1981-08-20', 3);
+INSERT INTO employee (ename, salary, birth_date, department_id) VALUES ('Ahmad', 90, '1981-08-12', 1);
+
+
+DROP TABLE employee;
+DROP TABLE department;
+
+SELECT ename FROM employee 
+JOIN department ON department.id = employee.id;
+
+SELECT ename, salary FROM employee 
+JOIN department ON department.id = employee.id
+WHERE salary > 100;
+
+SELECT * FROM employee 
+JOIN department ON department.id = employee.id
+WHERE dname = 'HR';
+
+
+
+
+
+
+
+
+
+
