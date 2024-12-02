@@ -1,5 +1,6 @@
 package l1;
 
+
 public abstract class P {
 
 	public static void main(String[] args) {
@@ -8,10 +9,7 @@ public abstract class P {
 		Person stud = new Student("akbar","sms sent to");
 		stud.awake();
 		System.out.println(stud.notif());
-		
-		
-		
-		
+
 	}
 	
 	public static abstract class Person {
@@ -55,7 +53,6 @@ public abstract class P {
 
 		public Student(String name, String sms) {
 			super(name);
-			
 			this.sms = sms;
 		}
 		

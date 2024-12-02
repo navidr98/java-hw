@@ -15,7 +15,7 @@ public class ConnectionHolder {
     public static Connection getInstance() {
         if (connection == null) {
             try {
-                connection = DriverManager.getConnection("jdbc:h2:~/test", "", "");
+                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "");
             } catch (SQLException e) {
                 log.log(Level.SEVERE, "Connect error", e);
                 throw new RuntimeException(e);

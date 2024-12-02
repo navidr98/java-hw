@@ -21,30 +21,39 @@ public class Acc {
     	Account o4 = new Account("Jafar", 9, 2);
     	Account o5 = new Account("Sepehr", 15, 3);
     	Account o6 = new Account("Arshia", 20, 4);
-    	
-    	
+
+
     	List<Account> ob = new ArrayList<>();
+
     	Account[] accounts = {o1, o2, o3, o4, o5, o6};
     	for (Account account : accounts) {
     	    ob.add(account);
     	}
     	
-    	
+
+		for (Account account : accounts) {
+			System.out.println(account.toString());
+		}
+
     	System.out.println("--------------list--------------");
-    	
-    	for (Iterator<Account> iterator = ob.iterator(); iterator.hasNext();) {
-			Account account = (Account) iterator.next();
+
+		for (Account account : accounts) {
 			System.out.println(account.toString());
 		}
     	
-    	
-    	
-    	Collections.sort(ob, new Comparator<Account>() {
+//    	for (Iterator<Account> iterator = ob.iterator(); iterator.hasNext();) {
+//			Account account = (Account) iterator.next();
+//			System.out.println(account.toString());
+//		}
+
+
+		Comparator<Account> x = new Comparator<Account>() {
 			@Override
 			public int compare(Account a, Account b) {
 				return a.getBalance() - b.getBalance();
 			}
-    	});
+		};
+    	Collections.sort(ob, x);
 
     	System.out.println();
     	System.out.println("--------------sort list--------------");
@@ -130,7 +139,7 @@ class Account {
     private String name;
     private int balance;
     private int branch;
-    
+
 
     @Override
 	public int hashCode() {
